@@ -1,0 +1,4 @@
+# local env
+venv/
+*.pk1
+*.model/
