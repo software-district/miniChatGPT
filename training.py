@@ -2,28 +2,31 @@ import json
 import random
 import pickle
 import numpy as np
+import tensorflow as tf 
 
 import nltk
 from nltk.stem import WordNetLemmatizer
 
-from keras.optimizers import SGD
-from keras.models import Sequential
-from keras.layers import Dense, Activation, Dropout
-
 # These nltk libs are sentence tokenizers that will aid the lemmatizer
+nltk.download('omw-1.4')
 nltk.download('punkt')
 nltk.download('wordnet')
 
 # Lemmatizer helps reduce words to their root
 # Example: work = working worked works
 lemmatizer = WordNetLemmatizer()
-
 intents = json.loads(open('intents.json').read())
 
-words = []
-combos = []
-classes = []
-ignore_letters = [',','.','!','?']
+SGD = tf.keras.optimizers.SGD
+Dense = tf.keras.layers.Dense
+Dropout = tf.keras.layers.Dropout
+Activation= tf.keras.layers.Activation
+Sequential = tf.keras.models.Sequential 
+
+words: list = []
+combos: list = []
+classes: list = []
+ignore_letters: list = [',','.','!','?']
 
 # Split sentence into individual words
 for intent in intents['intents']:
@@ -42,8 +45,8 @@ words = sorted(set(words))
 classes = sorted(set(classes))
 
 # Serialize data into files
-pickle.dump(words, open('words.pk1', 'wb'))
-pickle.dump(words, open('classes.pk1', 'wb'))
+pickle.dump(words, open('words.pkl', 'wb'))
+pickle.dump(classes, open('classes.pkl', 'wb'))
 
 # Using bag of words method for pattern match
 # Bag of words: set the individual values to eithrer 0 or 1 if it occurs in that pattern
@@ -85,6 +88,6 @@ model.add(Dense(len(train_y[0]), activation='softmax'))
 sgd = SGD(learning_rate=0.01,momentum=0.9,nesterov=True)
 model.compile(loss='categorical_crossentropy',optimizer=sgd, metrics=['accuracy'])
 
-model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose='1')
-model.save("miniGPT_model.model")
-print("done")
+hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose='1')
+model.save("miniGPT_model.h5", hist)
+print("\nDone!")

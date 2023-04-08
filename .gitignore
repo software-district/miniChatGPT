@@ -1,4 +1,4 @@
 # local env
 venv/
-*.pk1
-*.model/
+*.pkl
+*.h5
