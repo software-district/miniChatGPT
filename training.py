@@ -20,7 +20,6 @@ intents = json.loads(open('intents.json').read())
 SGD = tf.keras.optimizers.SGD
 Dense = tf.keras.layers.Dense
 Dropout = tf.keras.layers.Dropout
-Activation= tf.keras.layers.Activation
 Sequential = tf.keras.models.Sequential 
 
 words: list = []

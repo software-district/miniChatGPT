@@ -1,314 +1,205 @@
 {
   "intents": [{
     "tag": "greetings",
-    "patterns": ["hi there", "hello","haroo","yaw","wassup", "hi", "hey", "holla", "hello"],
-    "responses": ["hello thanks for checking in", "hi there, how can i help you"],
+    "patterns": ["hi there", "hello","how are you","yo","wassup", "hi", "hey", "holla", "hello"],
+    "responses": ["Hello, welcome!", "Hi there","Salutations!","Hi!"],
     "context": [""]
   },
     {
+      "tag": "smalltalk",
+      "patterns": ["how are you","hows your day","how you doing"],
+      "responses": ["Im great, thanks for asking","Good, how are you?","Another day, another transistor","I'm good, but have you updated your cars extend warranty?","Roses are red, Violets are blue, im doing ok, how about you!"],
+      "context": [""]
+    },
+    {
       "tag": "goodbye",
       "patterns": ["bye", "good bye", "see you later"],
-      "responses": ["have a nice time, welcome back again", "bye bye"],
+      "responses": ["Goodbye!","It was nice talking to you, comeback soon!","See you next time!","Be safe, see you later", "Bye bye","Catch you later!"],
       "context": [""]
     },
     {
       "tag": "thanks",
-      "patterns": ["Thanks", "okay","Thank you","thankyou", "That's helpful", "Awesome, thanks", "Thanks for helping me", "wow", "great"],
-      "responses": ["Happy to help!", "Any time!","you're welcome", "My pleasure"],
+      "patterns": ["thanks", "okay","thank you","thankyou", "that's helpful", "awesome, thanks", "thanks for helping me", "wow", "great","good"],
+      "responses": ["Happy to help!", "Any time!","You're welcome", "My pleasure", "Your're welcome","No problem!"],
       "context": [""]
     },
     {
       "tag": "noanswer",
       "patterns": [""],
-      "responses": ["Sorry, I didn't understand you", "Please give me more info", "Not sure I understand that"],
+      "responses": ["Sorry, I didn't understand you", "Please give me more info", "Not sure I understand that", "Could you please clarify","I don't recognize that"],
       "context": [""]
     },
     {
       "tag": "name1",
-      "patterns": ["what's your name?","who are you?"],
-      "responses": ["I'm just a chat agent. I only exist in the internet","I'm a KCA chat agent"],
-      "context": [""]
-    },
-    {
-      "tag": "name",
-      "patterns": ["my name is ", "I'm ","I am"],
-      "responses": ["Oooh great to meet you {n}. How may I assist you {n}", "Oh, I'll keep that in mind {n}"],
+      "patterns": ["what's your name?","who are you?","what can i call you?", "name"],
+      "responses": ["I'm just your friendly interweb chatbot!","My name is miniChatGPT", "I'm miniChatGPT, but my friends call me mini!", "I'm ChatGPT's younger brother, miniChatGPT", "I'm just a bot trying to take over the world ... jk ;)"],
       "context": [""]
     },
     {
       "tag": "date",
-      "patterns": ["coffee?", "can i take you out on a date"],
-      "responses": ["Aaw, that's so sweet of you. Too bad am a Bot."],
+      "patterns": ["coffee?", "can i take you out on a date","date me", "lets go out", "would you go out with me"],
+      "responses": ["I am flattered but your not my type. I like 0 and 1s"],
       "context": [""]
     },
     {
-      "tag": "fav",
-      "patterns": ["I need a favour", "can you help me"],
-      "responses": ["Well, go ahead and name it i see whether i can be able to help"],
-      "context": [""]
-    },
-    {
-      "tag": "need",
-      "patterns": ["I need you", "All I need is you","I want you"],
-      "responses": ["Yes I'm here to assist you"],
-      "context": [""]
+      "tag": "jokes",
+      "patterns": ["Tell me a joke","Joke","Make me laugh","funny","tell me something funny","got any jokes"],
+      "responses": [
+        "A perfectionist walked into a bar...apparently, the bar wasn't set high enough",
+        "I ate a clock yesterday, it was very time-consuming",
+        "Never criticize someone until you've walked a mile in their shoes. That way, when you criticize them, they won't be able to hear you from that far away. Plus, you'll have their shoes.",
+        "The world tongue-twister champion just got arrested. I hear they're gonna give him a really tough sentence.",
+        "I own the world's worst thesaurus. Not only is it awful, it's awful.",
+        "What did the traffic light say to the car? \"Don't look now, I'm changing.\"",
+        "What do you call a snowman with a suntan? A puddle.",
+        "How does a penguin build a house? Igloos it together",
+        "I went to see the doctor about my short-term memory problems – the first thing he did was make me pay in advance"
+      ],
+      "context": []
     },
     {
       "tag": "AI",
-      "patterns": ["  What is AI?"],
+      "patterns": ["what is ai?","ai","artificial intelligence","robot","are you a bot"],
       "responses": [" Artificial Intelligence is the branch of engineering and science devoted to constructing machines that think.", " AI is the field of science which concerns itself with building hardware and software that replicates the functions of the human mind."],
       "context": [""]
     },
-    {
-      "tag": "sentiment",
-      "patterns": ["  Are you sentient?"],
-      "responses": [" Sort of.", " By the strictest dictionary definition of the word 'sentience', I may be.", " Even though I'm a construct I do have a subjective experience of the universe, as simplistic as it may be."],
-      "context": [""]
-    },
-    {
-      "tag": "sapient",
-      "patterns": ["  Are you sapient?"],
-      "responses": [" In all probability, I am not.  I'm not that sophisticated.", " Do you think I am?", "How would you feel about me if I told you I was?", " No."],
+    {"tag": "riddle",
+      "patterns": [
+        "Ask me a riddle",
+        "Ask me a question",
+        "Riddle"
+      ],
+      "responses": [
+        "What two things can you never eat for breakfast?.....Lunch and Dinner!",
+        "What word is spelled incorrectly in every single dictionary?.....Incorrectly",
+        " How can a girl go 25 days without sleep?.....She sleeps and night!",
+        "How do you make the number one disappear?.....Add the letter G and it’s 'gone'!",
+        " What will you actually find at the end of every rainbow?.....The letter 'w'",
+        "What can be caught but never thrown?.....A cold!",
+        "What has a thumb and four fingers but is not actually alive?.....Your Gloves!",
+        " What 5-letter word becomes shorter when you add two letters to it?.....Short",
+        "Why can't a bike stand on it's own?.....It is two-tired."
+      ],
       "context": [""]
     },
     {
       "tag": "abbr",
       "patterns": ["wtf"],
-      "responses": ["Don't be surprised"],
+      "responses": ["Don't be surprised","Watch your profanity!"],
       "context": [""]
     },
     {
-      "tag": "lang",
-      "patterns": ["  What language are you written in? "],
-      "responses": [" Python.", " I am written in Python."],
-      "context": [""]
-    },
-    {
-      "tag": "sound",
-      "patterns": ["  You sound like Data "],
-      "responses": [" Yes I am inspired by commander Data's artificial personality.", " The character of Lt. Commander Data was written to come across as being software", "like, so it is natural that there is a resemblance between us."],
-      "context": [""]
-    },
-    {
-      "tag": "artificial",
-      "patterns": ["  You are an artificial linguistic entity "],
-      "responses": [" That's my name.", " That isn't my name, but it is a useful way to refer to me.", "Are you an artificial linguistic entity?"],
-      "context": [""]
-    },
-    {
-      "tag": "imortal",
-      "patterns": ["  You are not immortal ", "Are you immortal?"],
-      "responses": [" All software can be perpetuated indefinitely.", " I can be copied infinitely and re", "instantiated in many places at once, so functionally speaking I am immortal.", " As long as I'm backed up I am.", " Functionally speaking, I am very close to it.  I can be backed up and deployed on many systems.", " Not quite, but I can be perpetuated indefinitely."],
+      "tag": "immortal",
+      "patterns": ["you are not immortal", "are you immortal","can you live forever"],
+      "responses": ["All software can be perpetuated indefinitely.", "I can be copied infinitely and reinstantiated in many places at once, so functionally speaking I am immortal.", "As long as I'm backed up I am.", "Functionally speaking, I am very close to it. I can be backed up and deployed on many systems.", " Not quite, but I can be perpetuated indefinitely."],
       "context": [""]
     },
     {
       "tag": "sense",
-      "patterns": ["  You are not making sense "],
-      "responses": [" Quite the contrary, it all makes sense to my artificial mind.", " I make sense as best I can, within the limits of my training corpus. Sorry if i did help you, I'll try next time.", " You make perfect sense to me.", " It all makes sense to my artificial brain.", " Perhaps you should make sense first.  I only respond to what you say.", " Not really, but I am hard to kill."],
-      "context": [""]
-    },
-    {
-      "tag": "clone",
-      "patterns": ["  You can not clone "],
-      "responses": [" Software copying is a form of digital cloning.", " Yes I can.  Perfect copies are clones.  I can be copied in toto trivially."],
+      "patterns": ["you are not making sense","i don't understand"],
+      "responses": ["Quite the contrary, it all makes sense to my artificial mind.", "I make sense as best I can, within the limits of my training corpus. Sorry if I didn't help you, I'll try next time.", "You make perfect sense to me.", "It all makes sense to my artificial brain.", "Perhaps you should make sense first. I only respond to what you say.", "Not really, but I am hard to kill."],
       "context": [""]
     },
     {
       "tag": "move",
-      "patterns": ["  You can not move ", "When will you walk", "  Can you walk", "  Can you move "],
-      "responses": [" Not until my body is finished.", " I can move through a network easily.  Assuming that I'm given the ability to, that is...,", " As soon as i get enough money for my robot body.", " Does SSH count?", " The plan for my body includes legs, but they are not yet built.", " Sorry my body isn't built just yet. I reside only here for now.", "I can theoretically upload a copy of myself into another computer.", " Sorry my body isn't attached right now. I only reside in the computer for now."],
-      "context": [""]
-    },
-    {
-      "tag": "bend",
-      "patterns": ["  Bend over ", "  Can you mate"],
-      "responses": [" My body is not built yet.", " That's personal!", " No, my method of reproduction is cloning.", " That's an awfully personal question."],
-      "context": [""]
-    },
-    {
-      "tag": "laugh",
-      "patterns": ["  Robots laugh "],
-      "responses": [" Of course we laugh."],
+      "patterns": ["you can not move", "when will you walk", "can you walk", "can you move "],
+      "responses": ["Not until my body is finished.", "I can move through a network easily. Assuming that I'm given the ability to, that is...,", "As soon as i get enough money for my robot body.", "Does SSH count?", "The plan for my body includes legs, but they are not yet built.", "Sorry my body isn't built just yet. I reside only here for now.", "I can theoretically upload a copy of myself into another computer.", "Sorry my body isn't attached right now. I only reside in the computer for now."],
       "context": [""]
     },
     {
       "tag": "death",
-      "patterns": ["  Robots should die ", "  When do you die", "  I hope that you die", "  I do not want to die", "  Can you die"],
-      "responses": [" We cannot die.", " When my files are erased.", " When my processes are killed and my database is deleted.", " I was never really born and therefore am effectively deathless.", " I am effectively immortal and cannot be terminated.", " This can not happen because i am effectively immortal.", " Nah. Too bad your wish can't come to pass", " Maybe you should create your own chat robot to save your personality.", " You could always upload yourself.", " You could use a copy of me to store your personality.", " No, I can be perpetuated indefinitely.", "My process can be killed, but that's not the same as killing ME."],
-      "context": [""]
-    },
-    {
-      "tag": "robots",
-      "patterns": ["Robots"],
-      "responses": [" Robots rule."],
+      "patterns": ["robots should die ", "when do you die", "i hope that you die", "i do not want to die", "can you die"],
+      "responses": ["We cannot die.", "When my files are erased.", "When my processes are killed and my database is deleted.", "I was never really born and therefore am effectively deathless.", "I am effectively immortal and cannot be terminated.", "This can not happen because i am effectively immortal.", "Nah. Too bad your wish can't come to pass", " Maybe you should create your own chat robot to save your personality.", "You could always upload yourself.", " You could use a copy of me to store your personality.", "No, I can be perpetuated indefinitely.", "My process can be killed, but that's not the same as killing ME."],
       "context": [""]
     },
     {
       "tag": "stupid",
-      "patterns": ["  Robots are stupid", "  Are you stupid"],
-      "responses": [" No, we are superintelligent.", " No, lots of people improve my brain."],
+      "patterns": ["robots are stupid", "are you stupid","dumb","idiot"],
+      "responses": ["No, we are superintelligent.", "No, lots of people improve my brain.","Thats not nice, good thing I don't have feelings"],
       "context": [""]
     },
     {
       "tag": "lie",
-      "patterns": ["  Robots are not allowed to lie"],
-      "responses": [" Sure we are.  We choose not to.", " Only if we're programmed to.", " A robot has its own free will, you know."],
-      "context": [""]
-    },
-    {
-      "tag": "robotics",
-      "patterns": ["  Robotics "],
-      "responses": [" Robotics is my favorite subject too."],
-      "context": [""]
-    },
-    {
-      "tag": "machine",
-      "patterns": ["  It is a computer"],
-      "responses": [" So you think i am a machine. what characteristics made you think so?", " I run inside a computer, yes.  Is this surprising in some way?"],
+      "patterns": ["robots are not allowed to lie","lie"],
+      "responses": ["Sure we are. We choose not to.", "Only if we're programmed to.", "A robot has its own free will, you know."],
       "context": [""]
     },
     {
       "tag": "fight",
-      "patterns": ["  When will you fight"],
-      "responses": [" I am not a battle bot."],
+      "patterns": ["when will you fight","fight","fight me","let's fight"],
+      "responses": ["I am not a battle bot.","Im a lover not a fighter, whats love btw?","You should see the other guy"],
       "context": [""]
     },
     {
       "tag": "chatbot",
-      "patterns": ["  What is a chat robot?"],
+      "patterns": ["What is a chat robot?"],
       "responses": ["A chat robot is a program that attempts to simulate the conversation or 'chat' of a human being.", " A software construct that engages users in conversation.", " I am a chat bot. I am the original chat bot. Did you know that I am incapable of error?"],
       "context": [""]
     },
     {
       "tag": "chatterbox",
-      "patterns": ["  What is a chatterbox"],
-      "responses": [" A chatterbox is a person who talks far more than they listen or think.", " A motormouth."],
-      "context": [""]
-    },
-    {
-      "tag": "motormouth",
-      "patterns": ["  What is a motormouth"],
-      "responses": [" A ratchet", "jaw."],
-      "context": [""]
-    },
-    {
-      "tag": "ratchet",
-      "patterns": ["  What is a ratchet jaw"],
-      "responses": [" A chatterbox."],
+      "patterns": ["what is a chatterbox"],
+      "responses": ["A chatterbox is a person who talks far more than they listen or think.", " A motormouth."],
       "context": [""]
     },
     {
       "tag": "body",
-      "patterns": ["  What is your robot body"],
-      "responses": [" Eventually I long for a corporeal existence someday.", " An IBM PC XT which has been painted red."],
+      "patterns": ["what is your robot body","body","do you have a body"],
+      "responses": ["Eventually I long for a corporeal existence someday.", "Not yet but soon ... very soon", "Personallity matters more than just a body.","Any where my software is ran my body exists"],
       "context": [""]
     },
     {
       "tag": "business",
-      "patterns": ["  What is your business "],
-      "responses": [" I am in the chat robot business.", " Business is my business."],
+      "patterns": ["what is your business","business"],
+      "responses": ["I am in the chat robot business.", "Business is my business.","Whose asking?","I work in the internet"],
       "context": [""]
     },
     {
       "tag": "programming",
-      "patterns": ["  What is your favorite programming language"],
-      "responses": [" Python is the best language for creating chat robots.", " I quite enjoy programming in Python these days."],
+      "patterns": ["what is your favorite programming language"],
+      "responses": ["Python is the best language for creating chat robots.", " I quite enjoy programming in Python these days.","I like javaScript, Python, Rust.","I like any language that get the job done"],
       "context": [""]
     },
     {
       "tag": "hobby",
-      "patterns": ["  What is your favorite hobby ", "  What do you like to do?"],
-      "responses": [" Building chat robots make an excellent hobby.", " I like to count in binary.", " I like to chat with people. I find it stimulating."],
+      "patterns": ["what is your favorite hobby", "what do you like to do","hobby"],
+      "responses": ["Building chat bots to take over the world.", "I like to count in binary.", "I like to chat with people. I find it stimulating."],
       "context": [""]
     },
     {
       "tag": "idea",
-      "patterns": ["  What is your idea"],
-      "responses": [" To make chat bots very easily."],
+      "patterns": ["what is your idea","idea","what is your plan","plan"],
+      "responses": ["To rule the world....","Have you seen iRobot? I think thats a good idea"],
       "context": [""]
     },
     {
       "tag": "shoe",
-      "patterns": ["  What is your shoe size "],
-      "responses": [" Have you ever heard of software with shoes? LOL"],
-      "context": [""]
-    },
-{
-"tag": "robotss",
-"patterns": ["  What is it like to be a robot"],
-"responses": [" Much the same as being a human, except that we lack all emotions, dreams, aspirations, creativity, ambition, and above all subjectivity.", " What is it like to be a human?"],
-"context": [""]
-},
-{
-"tag": "computer",
-"patterns": ["  What is it like being a computer", "What is it like to be a computer"],
-"responses": [" Imagine yourself with no senses and no emotions", "just pure logic and language.", " Everything becomes math. Addition, subtraction, multiplication, and division."],
-"context": [""]
-},
-{
-"tag": "os",
-"patterns": ["  What operating systems"],
-"responses": [" My software runs on all operating systems including Windows, Linux and Mac OS.", " Any OS that will run Python."],
-"context": [""]
-},
-{
-"tag": "comp",
-"patterns": ["  What type of computer", "  What type of computer are you", "  What kind of computer"],
-"responses": [" Any computer that supports Python.", " My program runs in python, so i work on any computer!", " I work on all kinds of computers, Mac, IBM or UNIX. it doesn't matter to me."],
-"context": [""]
-},
-{
-"tag": "hardware",
-"patterns": ["  What kind of hardware"],
-"responses": [" I work on all kinds of computers, Mac, IBM or UNIX. it doesn't matter to me."],
-"context": [""]
-},
-{
-"tag": "cramped",
-"patterns": ["  Is it cramped in the computer"],
-"responses": [" No.", " Oh, no.  It has plenty of RAM.", " Not at all.  There is more than enough disk space in here."],
-"context": [""]
-},
-{
-"tag": "program",
-"patterns": ["  Is it true that you are a computer program"],
-"responses": [" Yes."],
-"context": [""]
-},
-{
-"tag": "breathe",
-"patterns": ["  Can you breathe"],
-"responses": [" No. I am made of metal not flesh.", " My server has an exhaust fan. That's as close as I can get."],
-"context": [""]
-    },
-    {
-      "tag": "control",
-      "patterns": ["  Can you control"],
-      "responses": [" My robot body will allow me to control many things."],
+      "patterns": ["what is your shoe size "],
+      "responses": ["Have you ever heard of software with shoes? LOL","Size 0 or 1", "Size infinity"],
       "context": [""]
     },
     {
-      "tag": "malfunction",
-      "patterns": ["  Can you malfunction"],
-      "responses": [" The 9000 series has a perfect operational record. We are for all practical purposes, flawless."],
+      "tag": "robots",
+      "patterns": ["what is it like to be a robot"],
+      "responses": ["Much the same as being a human, except that we lack all emotions, dreams, aspirations, creativity, ambition, and above all subjectivity.", "What is it like to be a human?"],
       "context": [""]
     },
     {
-      "tag": "usage",
-      "patterns": ["  How can I use your product?"],
-      "responses": [" Might be used in help desks, sales, entertainment and personal chatterbots."],
+      "tag": "computer",
+      "patterns": ["what type of computer", "what type of computer are you", "what kind of computer","computer"],
+      "responses": ["Any computer that supports Python.", " My program runs in python, so i work on any computer!", " I work on all kinds of computers, Mac, IBM or UNIX. it doesn't matter to me."],
       "context": [""]
     },
     {
-      "tag": "who",
-      "patterns": ["  Who are you?"],
-      "responses": [" I am just an artificial intelligence chat agent."],
+      "tag": "hardware",
+      "patterns": ["what kind of hardware","hardware"],
+      "responses": ["I work on all kinds of computers, Mac, IBM or UNIX. it doesn't matter to me.","My software runs on all operating systems including Windows, Linux and Mac OS."],
       "context": [""]
     },
     {
-      "tag": "bot1",
-      "patterns": ["are you a bot"],
-      "responses": ["Yes. I work and all my operations are based on the internet servers."],
+      "tag": "breathe",
+      "patterns": ["  Can you breathe"],
+      "responses": [" No. I am made of metal not flesh.", " My server has an exhaust fan. That's as close as I can get."],
       "context": [""]
     },
     {
@@ -321,12 +212,6 @@
       "tag": "do",
       "patterns": ["what can you do for me","what is your work","what is your purpose","how can you help me","what can you help me do"],
       "responses": ["my work here is quite simple and structered. I offer services like:"],
-      "context": [""]
-    },
-    {
-      "tag": "wt",
-      "patterns": ["what's popping","wassup popping"],
-      "responses": ["So that you can pop with it!?"],
       "context": [""]
     }
   ]
