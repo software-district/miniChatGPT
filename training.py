@@ -8,16 +8,14 @@ import nltk
 from nltk.stem import WordNetLemmatizer
 
 # These nltk libs are sentence tokenizers that will aid the lemmatizer
-nltk.download('omw-1.4')
-nltk.download('punkt')
-nltk.download('wordnet')
+nltk.download('popular')
 
 # Lemmatizer helps reduce words to their root
 # Example: work = working worked works
 lemmatizer = WordNetLemmatizer()
 intents = json.loads(open('intents.json').read())
 
-SGD = tf.keras.optimizers.SGD
+SGD = tf.keras.optimizers.legacy.SGD # legacy runs faster on m1/m2 chips
 Dense = tf.keras.layers.Dense
 Dropout = tf.keras.layers.Dropout
 Sequential = tf.keras.models.Sequential 
@@ -35,7 +33,6 @@ for intent in intents['intents']:
         combos.append((word_list, intent['tag']))
         if intent['tag'] not in classes:
             classes.append(intent['tag'])
-
 
 words = [lemmatizer.lemmatize(word)
     for word in words if word not in ignore_letters]
@@ -69,8 +66,8 @@ training = np.array(training)
 # Features and labels for supervised training of neural-net 
 # Labels are the prediction or forecasts
 # Features are descriptive attributes 
-train_x = list(training[:,0]) # Features
-train_y = list(training[:,1]) # Labels
+train_x: list = list(training[:,0]) # Features
+train_y: list = list(training[:,1]) # Labels
 
 # Building neural-net model 
 # relu = rectified linear unit
@@ -87,6 +84,6 @@ model.add(Dense(len(train_y[0]), activation='softmax'))
 sgd = SGD(learning_rate=0.01,momentum=0.9,nesterov=True)
 model.compile(loss='categorical_crossentropy',optimizer=sgd, metrics=['accuracy'])
 
-hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose='1')
+hist = model.fit(np.array(train_x), np.array(train_y), epochs=300, batch_size=5, verbose='1')
 model.save("miniGPT_model.h5", hist)
-print("\nDone!")
+print("\nTraining is Done!")

@@ -61,7 +61,7 @@ def get_random_res(intents_list: list, intents_json: dict):
 def run_chatbot():
     print('miniChatGPT is listening! Say anything')
     while True:
-        message = input('')
+        message: str = input('').lower()
         ints = predict_res(message)
         res = get_random_res(ints, intents)
         print(res)
