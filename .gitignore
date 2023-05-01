@@ -2,3 +2,4 @@
 venv/
 *.pkl
 *.h5
+*.DS_Store
