@@ -1,6 +1,7 @@
-# Welcome to miniChatGPT Repo
+# Welcome to miniChatGPT
 
-    > A light-weight example of chatGPT
+    A light-weight example of chatGPT using neural nets and intents file
+    Blog post coming soon!
 
 ## How to setup and run miniChatGPT
 
