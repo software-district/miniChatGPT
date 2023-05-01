@@ -2,6 +2,8 @@
 
     A light-weight example of chatGPT using neural nets and intents file
     Blog post coming soon!
+    
+    https://user-images.githubusercontent.com/60236247/235516234-1f391073-84a0-4b14-9781-72520bf112bb.mov
 
 ## How to setup and run miniChatGPT
 
