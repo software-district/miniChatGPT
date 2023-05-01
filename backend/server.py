@@ -31,7 +31,7 @@ def home():
 
 @bot.route("/get", methods=["POST"])
 def run_chatbot_web():
-    message = request.form["message"]
+    message = request.form["message"].lower()
     if message.startswith('my name is'):
         name = message[11:]
         ints = predict_res(message)

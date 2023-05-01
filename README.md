@@ -1,10 +1,12 @@
-# Welcome to miniChatGPT Repo: A light-weight example of chatGPT
+# Welcome to miniChatGPT Repo
+
+    > A light-weight example of chatGPT
 
 ## How to setup and run miniChatGPT
 
 ### 1. Clone Project
 
-   > git clone https://github.com/eruigu/miniChatGPT.git
+   > git clone [https://github.com/eruigu/miniChatGPT.git]
 
 ### 2. Setup Environment
 
@@ -33,4 +35,7 @@
 ### 8. Run the chatbot
 
    > python3 server.py: which is located in backend/
-    > the app will run on 127.0.0.1:8001
+
+### 9. Server is running on 127.0.0.1:8001
+
+   > You can change server function in server.py
