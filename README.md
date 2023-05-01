@@ -1,4 +1,4 @@
-# Welcome to miniChatGPT
+# Welcome to miniChatGPT!
 
     A light-weight example of chatGPT using neural nets and an intents file
     Blog post coming soon!
