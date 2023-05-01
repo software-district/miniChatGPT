@@ -3,20 +3,19 @@
 
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css">
   </head>
 
   <body style="background-color: #ABB0B8"; >
 
     <form class="container">
-
       <div class="h-100 d-flex align-items-center justify-content-center">
-        <div class="col-md-10 col-lg-8 col-xl-6">
+        <div class="col-xl-6">
 
-          <div class="card card-bordered ">
+          <div class="card border-dark border-1">
             <div class="card-header" style="background-color: #1e77fc";>
-              <div class="card-header d-flex justify-content-between align-items-center p-3" 
+              <div class="card border-dark border-3 justify-content-between align-items-center p-3" 
                 style="background-color: #1774ff";>
                 <h3 class="card-title"><strong><b>miniChatGPT</b></strong></h3>
               </div>
@@ -27,44 +26,42 @@
               style="overflow-y: scroll !important; height:400px !important;">
               <div class="media media-chat" id="chatbox">
                 <div class="col-md-8 ml-auto mr-auto">
-                  <p class="botText"><span></span></p>
+                  <p class="botText"><strong><span></span></strong></p>
                 </div>
               </div>
             </div>
 
 
-              <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
-                <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
-              </div>
-
-              <div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 2px;">
-                <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 2px;"></div>
-              </div>
-
-
-
-              <div id="userInput" class="publisher bt-8 border-light" style="border-top: 3px solid #c7c5c5 !important;">
-                <div class="col-md-12 p-2 m-2 d-flex">
-                  <img class="avatar avatar-xs" 
-                    src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="...">
-                  <input id="text" type="text" name="msg" placeholder="Type message here" 
-                    class="form-control m-1">
-                  <button type="submit" id="send" class="m-1 btn btn-primary btn-sm">Send</button>
-                </div>
-              </div>
-
+            <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
+              <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
             </div>
+
+            <div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 2px;">
+              <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 2px;"></div>
+            </div>
+
+
+            <div id="userInput" class="publisher bt-8 border-light" 
+              style="border-top: 3px solid #c7c5c5 !important;">
+              <div class="col-md-13 p-2 m-2 d-flex">
+                <img class="avatar avatar-64 bg-light rounded-circle p-1" src="/assets/robot.png" alt="...">
+                <input id="message" type="text" name="message" placeholder="Type message here" 
+                  class="form-control m-1">
+                <button type="submit" id="send" class="m-1 btn btn-primary btn-sm">Send</button>
+              </div>
+            </div>
+
           </div>
         </div>
-
+      </div>
     </form>
 
     <script>
     $(document).ready(function() {
       $("form").on("submit", function(event) {
-        var rawText = $("#text").val();
+        var rawText = $("#message").val();
         var userHtml = '<p class="userText"><span>' + 'User: ' + rawText + "</span></p>";
-        $("#text").val("");
+        $("#message").val("");
         $("#chatbox").append(userHtml);
         document.getElementById("userInput").scrollIntoView({
           block: "start",
@@ -72,12 +69,12 @@
         });
         $.ajax({
           data: {
-            msg: rawText,
+            message: rawText,
           },
           type: "POST",
           url: "/get",
         }).done(function(data) {
-            var botHtml = '<p class="botText"><span>' + data + "</span></p>";
+            var botHtml = '<p class="botText"><span>' + 'ChatBot: ' + data + "</span></p>";
             $("#chatbox").append($.parseHTML(botHtml));
             document.getElementById("userInput").scrollIntoView({
               block: "start",
@@ -88,6 +85,6 @@
       });
     });
     </script>
-  </body>
 
+  </body>
 </html>

@@ -9,8 +9,8 @@ class Config:
     """Base config."""
     SECRET_KEY = environ.get('SECRET_KEY')
     SESSION_COOKIE_NAME = environ.get('SESSION_COOKIE_NAME')
-    STATIC_FOLDER = 'static'
-    TEMPLATES_FOLDER = 'templates'
+    STATIC_FOLDER = basedir + '/../frontend/assets/'
+    TEMPLATES_FOLDER = basedir + '/../frontend/pages/'
 
 
 class ProdConfig(Config):

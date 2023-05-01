@@ -5,20 +5,23 @@ import tensorflow as tf
 
 from chatbot import predict_res, get_random_res
 from flask import Flask, render_template, request
+from config import Config, DevConfig
 
 load_model = tf.keras.models.load_model
 
 CWD = os.getcwd()
 intents_path = os.path.join(CWD, '../model_training/intents.json')
-template_path = os.path.join(CWD, '../frontend/pages')
 
 model = load_model('miniGPT_model.h5')
 words = pickle.load(open('words.pkl', 'rb'))
 classes = pickle.load(open('classes.pkl', 'rb'))
 intents = json.loads(open(intents_path).read())
 
-bot = Flask(__name__, template_folder=template_path)
-bot.config.from_object('config.DevConfig')
+bot = Flask(__name__,
+            static_folder=Config.STATIC_FOLDER,
+            template_folder=Config.TEMPLATES_FOLDER
+            )
+bot.config.from_object(DevConfig)
 
 
 @bot.route("/")
