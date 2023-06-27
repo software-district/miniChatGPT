@@ -1,8 +1,7 @@
 # Welcome to miniChatGPT!
 
     A light-weight example of chatGPT using neural nets and an intents file
-    Blog post coming soon!
-    
+
    https://user-images.githubusercontent.com/60236247/235518311-ae1c71fc-baa5-40ec-ab00-6edfdc4fba2d.mov
 
 ## How to setup and run miniChatGPT
@@ -33,12 +32,14 @@
 
 ### 7. Train chatbot model
 
-   > python3 training.py: which is located in model_training/
+   > cd into src/model_training/ and run python3 training.py
+   >> this will create two .pkl (pickle) files: classes and words in src/backend/
 
 ### 8. Run the chatbot
 
-   > python3 server.py: which is located in backend/
+   > python3 server.py: which is located in src/backend/
+   >> this will create a .h5 model file in the current directory
 
 ### 9. Server is running on 127.0.0.1:8001
 
-   > You can change server function in server.py
+   > You can change server config in server.py
