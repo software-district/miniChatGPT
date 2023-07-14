@@ -1,28 +1,27 @@
 import os
-import json
 import random
 import pickle
 import numpy as np
 import tensorflow as tf
-
 import nltk
 from nltk.stem import WordNetLemmatizer
+
+from minichatgpt.model_training.training import intents
 
 lemmatizer = WordNetLemmatizer()
 load_model = tf.keras.models.load_model
 
-intentCWD = os.getcwd()
-path = os.path.join(intentCWD, '../model_training/intents.json')
+intentCWD = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(intentCWD, 'miniGPT_model.h5')
+words_path = os.path.join(intentCWD, 'words.pkl')
+classes_path = os.path.join(intentCWD, 'classes.pkl')
 
-model = load_model('miniGPT_model.h5')
-words = pickle.load(open('words.pkl', 'rb'))
-classes = pickle.load(open('classes.pkl', 'rb'))
-intents = json.loads(open(path).read())
+model = load_model(model_path)
+words = pickle.load(open(words_path, 'rb'))
+classes = pickle.load(open(classes_path, 'rb'))
 
 if model is None:
-    raise RuntimeError(
-            "miniGPT model is None. Check model is properly trained and loaded"
-            )
+    raise RuntimeError("miniGPT model is None. Check if the model is properly trained and loaded")
 
 
 # Clean sentence for parsing

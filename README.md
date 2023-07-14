@@ -40,14 +40,22 @@
 
 ### 7. Train chatbot model
 
-   > cd into src/model_training/ and run python3 training.py
-   >> This will create two .pkl (pickle) files: classes and words in src/backend/
+   > `python3 -m minichatgpt.model_training.training`
+   >> This will create two .pkl (pickle) files: classes and words & miniGPT_model.h5 in src/backend/
 
 ### 8. Run the chatbot
 
-   > python3 server.py: which is located in src/backend/
+   > `python3 -m minichatgpt.backend.server`
    >> this will create a .h5 model file in the current directory
 
 ### 9. The server is running on 127.0.0.1:8001
 
    > You can change the server config in server.py
+
+### 10. Docker
+   > `docker docker build -t minichatgpt:1.0.0 .`
+   >> this will create an image for the project
+
+   > `docker run --name minichatgpt -d -p 8001:8001 minichatgpt:1.0.0`
+   >> this creates and runs a container for the image in the background.
+   >>> access at localhost:8001

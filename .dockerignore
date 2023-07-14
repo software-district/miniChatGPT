@@ -1,0 +1,29 @@
+# Python bytecode files
+*.pyc
+*.pyo
+__pycache__/
+
+# Development and testing files
+*.pytest_cache/
+.coverage
+.tox/
+htmlcov/
+.pytest_cache/
+nosetests.xml
+*.egg-info/
+dist/
+
+# Build files
+build/
+*.egg-info/
+dist/
+*.egg
+*.whl
+
+# Environment-specific files
+.env
+*.env
+
+# Miscellaneous files
+.DS_Store
+Thumbs.db

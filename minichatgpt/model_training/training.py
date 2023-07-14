@@ -1,3 +1,4 @@
+import os
 import json
 import random
 import pickle
@@ -13,7 +14,20 @@ nltk.download('popular')
 # Lemmatizer helps reduce words to their root
 # Example: work = working worked works
 lemmatizer = WordNetLemmatizer()
-intents = json.loads(open('intents.json').read())
+
+
+# Define the paths to the intents.json file and other data files
+current_dir = os.path.dirname(os.path.abspath(__file__))
+backend_dir = os.path.join(current_dir, "..", "backend")
+words_path = os.path.join(backend_dir, "words.pkl")
+classes_path = os.path.join(backend_dir, "classes.pkl")
+model_path = os.path.join(backend_dir, "miniGPT_model.h5")
+
+json_path = os.path.join(current_dir, 'intents.json')
+with open(json_path) as file:
+    intents = json.load(file)
+# Make `intents` accessible as a module-level variable
+__all__ = ['intents']
 
 SGD = tf.keras.optimizers.legacy.SGD   # legacy runs faster on m1/m2 chips
 Dense = tf.keras.layers.Dense
@@ -41,8 +55,12 @@ words = sorted(set(words))
 classes = sorted(set(classes))
 
 # Serialize data into files
-pickle.dump(words, open('../backend/words.pkl', 'wb'))
-pickle.dump(classes, open('../backend/classes.pkl', 'wb'))
+with open(words_path, 'wb') as file:
+    pickle.dump(words, file)
+
+with open(classes_path, 'wb') as file:
+    pickle.dump(classes, file)
+
 
 # Using bag of words method for pattern match
 # Bag of words: set the individual values to eithrer 0 or 1 if it occurs in that pattern
@@ -88,5 +106,5 @@ model.compile(loss='categorical_crossentropy',
 
 hist = model.fit(np.array(train_x), np.array(train_y),
                  epochs=300, batch_size=5, verbose='1')
-model.save("../backend/miniGPT_model.h5", hist)
+model.save(model_path)
 print("\nTraining is Done!")
