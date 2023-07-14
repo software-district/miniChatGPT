@@ -4,6 +4,10 @@ WORKDIR /app
 
 COPY . .
 
+# Set environment variables
+ENV FLASK_ENV=production
+ENV PORT=8001
+
 RUN pip install --no-cache-dir wheel && \
     pip install --no-cache-dir -r requirements.txt && \
     pip install --no-cache-dir .

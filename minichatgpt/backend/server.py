@@ -50,4 +50,13 @@ def run_chatbot_web():
 
 
 if __name__ == "__main__":
-    bot.run(host='0.0.0.0', port=8001)
+    # Check if running in production
+    if os.getenv("FLASK_ENV") == "production":
+        host = "0.0.0.0"
+    else:
+        host = "127.0.0.1"
+
+    # Retrieve the PORT environment variable if available, otherwise use default value
+    port = int(os.getenv("PORT", 8001))
+
+    bot.run(host=host, port=port)
