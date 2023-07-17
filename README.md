@@ -1,6 +1,6 @@
 # Welcome to miniChatGPT!
 
-    A light-weight example of chatGPT using neural nets and an intents file
+    A light-weight example of chatGPT using neural nets and custom trained model
 
    https://user-images.githubusercontent.com/60236247/235518311-ae1c71fc-baa5-40ec-ab00-6edfdc4fba2d.mov
 
@@ -53,6 +53,7 @@
    > You can change the server config in server.py
 
 ### 10. Docker
+
    > `docker docker build -t minichatgpt:1.0.0 .`
    >> this will create an image for the project
 

@@ -4,10 +4,11 @@ setup(
     name='minichatgpt',
     version='1.0.0',
     description='Mini Chatbot using GPT',
-    author='Your Name',
-    author_email='your@email.com',
+    author='eruigu',
+    author_email='erick@ruigu.dev',
     packages=find_packages(),
-    package_data={'minichatgpt': ['model_training/intents.json', "frontend/**/*"]},
+    package_data={'minichatgpt':
+                  ['model_training/intents.json', "frontend/**/*"]},
     install_requires=[
         'nltk~=3.8.1',
         'flask~=2.2.3',
