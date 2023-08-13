@@ -2,10 +2,11 @@ import os
 import pickle
 import tensorflow as tf
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from minichatgpt.config import Config, DevConfig
 from minichatgpt.model_training.training import intents
 from minichatgpt.backend.chatbot import predict_res, get_random_res
+from minichatgpt.openai_gpt.openai_service import generate_response
 
 load_model = tf.keras.models.load_model
 
@@ -47,6 +48,21 @@ def run_chatbot_web():
         ints = predict_res(message)
         res = get_random_res(ints, intents)
     return res
+
+@bot.route("/openai", methods=["GET"])
+def openai_page():
+    return render_template('openai.html')
+
+@bot.route('/api/chat', methods=['POST'])
+def processResponse():
+    # Get the user message from the request
+    user_message = request.json['message']
+
+    # Generate the system's response using OpenAI logic
+    system_response = generate_response(user_message)
+
+    # Return the system response as JSON
+    return jsonify({'response': system_response})
 
 
 if __name__ == "__main__":

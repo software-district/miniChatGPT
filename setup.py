@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='minichatgpt',
-    version='1.0.0',
+    version='1.1.0',
     description='Mini Chatbot using GPT',
     author='eruigu',
     author_email='erick@ruigu.dev',
@@ -17,6 +17,7 @@ setup(
         'tensorflow~=2.12.0;platform_system=="Linux"',
         'tensorflow-macos~=2.12.0;platform_system=="Darwin"',
         'tensorflow-intel~=2.12.0;platform_system=="Windows"',
+        'openai==0.27.0',
     ],
     entry_points={
         'console_scripts': [
