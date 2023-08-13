@@ -4,6 +4,12 @@
 
    https://user-images.githubusercontent.com/60236247/235518311-ae1c71fc-baa5-40ec-ab00-6edfdc4fba2d.mov
 
+## Tech Stack
+* [TensorFlow](https://www.tensorflow.org/) is an end-to-end open-source platform for machine learning
+* [Flask](https://flask.palletsprojects.com/en/2.3.x/) is a micro web framework written in Python
+* [NLTK](https://www.nltk.org/) is a leading platform for building Python programs to work with human language data
+* Python, HTML/CSS
+
 ## How to set up and run miniChatGPT
 
 ### 1. Clone Project
