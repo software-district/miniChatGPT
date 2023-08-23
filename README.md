@@ -66,3 +66,12 @@
    > `docker run --name minichatgpt -d -p 8001:8001 minichatgpt:1.0.0`
    >> this creates and runs a container for the image in the background.
    >>> access at localhost:8001
+
+
+### OpenAi
+   1. create an openapi API_KEY at [open api dev](https://platform.openai.com/account/api-keys)
+   2. add above key to `OPENAI_API_KEY` variable in `.env` file
+   3. access the openai chatbot at route `localhost:8001/openai`
+   4. examples & docs
+   - see `minichatgpt/openai_gpt/openai_examples.py` file for examples
+   - visit [openai docs](https://platform.openai.com/docs/api-reference/)

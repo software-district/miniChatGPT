@@ -14,6 +14,8 @@ RUN pip install --no-cache-dir wheel && \
 
 RUN python -u minichatgpt/model_training/training.py
 
+ENV OPENAI_API_KEY
+
 EXPOSE 8001
 
 ENTRYPOINT ["python", "-u", "minichatgpt/backend/server.py"]
